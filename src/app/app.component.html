@@ -1,0 +1,143 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button
+    *ngIf="storageService.isAuthenticated()"
+    mat-icon-button
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+    <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+  </button>
+
+  <h1 class="example-app-name">{{ getTitle() }}</h1>
+
+  <span class="example-spacer"></span>
+
+  <button
+    *ngIf="storageService.isAuthenticated()"
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="storageService.logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Cerrar Sesión</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-sidenav-container">
+  <mat-sidenav opened="false" #sidenav style="width: 200px">
+    <img
+      src="../../../assets/logo.png"
+      alt="Logo Empresa"
+      width="150"
+      height="150"
+      class="imgcenter"
+    />
+    <div mat-subheader>Opciones</div>
+    <!--<mat-divider></mat-divider>-->
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/movimiento"
+      style="cursor: pointer"
+    >
+      <mat-icon>arrow_right</mat-icon>
+      <span>Movimientos</span>
+    </button>
+
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/credito"
+      style="cursor: pointer"
+    >
+      <mat-icon>arrow_right</mat-icon>
+      <span>Creditos</span>
+    </button>
+
+    <div mat-subheader>Maestros</div>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/cliente"
+      style="cursor: pointer"
+    >
+      <mat-icon>arrow_right</mat-icon>
+      <span>Clientes</span>
+    </button>
+
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/proveedor"
+      style="cursor: pointer"
+    >
+      <mat-icon>arrow_right</mat-icon>
+      <span>Proveedor</span>
+    </button>
+
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/articulo"
+      style="cursor: pointer"
+    >
+      <mat-icon>arrow_right</mat-icon>
+      <span>Articulos</span>
+    </button>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/tipocliente"
+      style="cursor: pointer"
+    >
+      <mat-icon>arrow_right</mat-icon>
+      <span>Tipo Cliente</span>
+    </button>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/tipopago"
+      style="cursor: pointer"
+    >
+      <mat-icon>arrow_right</mat-icon>
+      <span>Tipo Pago</span>
+    </button>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/tipocredito"
+      style="cursor: pointer"
+    >
+      <mat-icon>arrow_right</mat-icon>
+      <span>Tipo Credito</span>
+    </button>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/tipomovimiento"
+      style="cursor: pointer"
+    >
+      <mat-icon>arrow_right</mat-icon>
+      <span>Tipo Movimiento</span>
+    </button>
+    <button
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/usuario"
+      style="cursor: pointer"
+    >
+      <mat-icon>arrow_right</mat-icon>
+      <span>Usuarios</span>
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="container-dashboard">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

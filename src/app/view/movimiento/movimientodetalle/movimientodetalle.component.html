@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Movimiento Detalle</h1>
+<div mat-dialog-content>
+  <table id="customers">
+    <tr>
+      <td class="th">Producto</td>
+      <td class="th">Cantidad</td>
+      <td class="th">Valor</td>
+    </tr>
+    <tr *ngFor="let element of _datosDetalle">
+      <td>
+        <mat-label style="align-text: center">{{
+          element.articulo.descripcion
+        }}</mat-label>
+      </td>
+      <td>
+        <mat-label style="align-text: center">{{ element.cantidad }}</mat-label>
+      </td>
+      <td>
+        <mat-label style="align-text: center">{{
+          element.valor | currency: "Q"
+        }}</mat-label>
+      </td>
+    </tr>
+  </table>
+
+  <br />
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" (click)="cerrar()">Cerrar</button>
+</div>

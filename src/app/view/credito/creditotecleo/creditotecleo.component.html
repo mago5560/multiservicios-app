@@ -1,0 +1,109 @@
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Credito Tecleo</mat-card-title>
+      <mat-card-subtitle>ingreso de credito</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field
+          class="example-form-field"
+          appearance="outline"
+          [style.width.%]="100"
+        >
+          <mat-label>Fecha Inicial</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerInicial"
+            placeholder="Ingrese la fecha inicial"
+            [(ngModel)]="cls.fechainicial"
+            requiere
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="pickerInicial"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #pickerInicial></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field
+          class="example-form-field"
+          appearance="outline"
+          [style.width.%]="100"
+        >
+          <mat-label>Fecha Final</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerFinal"
+            placeholder="Ingrese la fecha final"
+            [(ngModel)]="cls.fechafinal"
+            requiere
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="pickerFinal"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #pickerFinal></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Seleccione Cliente</mat-label>
+          <mat-select [(ngModel)]="cls.clienteId" required>
+            <mat-option *ngFor="let c of _datosCliente" [value]="c.id">
+              {{ c.nombre + " " + c.apellido }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Seleccione Tipo de Credito</mat-label>
+          <mat-select [(ngModel)]="cls.tipocreditoId" required>
+            <mat-option *ngFor="let c of _datosTipoCredito" [value]="c.id">
+              {{ c.descripcion }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Seleccione Tipo de Movimiento Credito</mat-label>
+          <mat-select [(ngModel)]="clsDetalle.tipomovimientoId" required>
+            <mat-option *ngFor="let c of _datosTipoMovimiento" [value]="c.id">
+              {{ c.descripcion }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Monto</mat-label>
+          <input
+            matInput
+            type="number"
+            data-decimal="2"
+            placeholder="Ingrese el Monto del credito"
+            [(ngModel)]="cls.valor"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Descripcion</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese una descripcion"
+            [(ngModel)]="cls.descripcion"
+            requiere
+          />
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="warn" (click)="cerrar()">
+        Cancelar
+      </button>
+      <button mat-raised-button color="primary" (click)="grabar()">
+        Grabar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

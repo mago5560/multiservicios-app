@@ -1,0 +1,101 @@
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-title>Usuario Tecleo</mat-card-title>
+    <mat-card-subtitle>ingreso de usuarios</mat-card-subtitle>
+    <mat-card-content>
+      <div>
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese su Nombre"
+            [(ngModel)]="cls.nombre"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Apellido</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese su Apellido"
+            [(ngModel)]="cls.apellido"
+            requiere
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Usuario</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese su Usuario"
+            [(ngModel)]="cls.usuario"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            placeholder="Ingrese la contraseña"
+            [(ngModel)]="cls.password"
+            require
+          />
+
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Telefono</mat-label>
+          <input
+            matInput
+            type="number"
+            placeholder="Ingrese su Telefono"
+            [(ngModel)]="cls.telefono"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Direccion</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese su Direccion"
+            [(ngModel)]="cls.direccion"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Seleccione Tipo de Usuario</mat-label>
+          <mat-select [(ngModel)]="cls.tipousuarioId" required>
+            <mat-option *ngFor="let c of _datosTipoUsuario" [value]="c.id">
+              {{ c.descripcion }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="cerrar()">
+        Cancelar
+      </button>
+      <button mat-raised-button color="primary" (click)="grabar()">
+        Grabar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,97 @@
+<mat-card class="example-card">
+  <mat-card-title class="mat-card-content-body"
+    >Estado de Cuenta</mat-card-title
+  >
+  <mat-card-content class="mat-card-content-body">
+    <table id="customers">
+      <tr>
+        <td class="th" colspan="2">Cliente</td>
+      </tr>
+      <tr>
+        <td class="th" colspan="2">
+          <mat-label style="align-text: center">{{
+            clsCredito.cliente.nombre + " " + clsCredito.cliente.apellido
+          }}</mat-label>
+        </td>
+      </tr>
+      <tr>
+        <td>DPI</td>
+        <td>
+          <mat-label style="align-text: center">
+            {{ clsCredito.cliente.dpi }}</mat-label
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Monto Credito</td>
+        <td>
+          <mat-label style="align-text: center">{{
+            clsCredito.valor | currency: "Q"
+          }}</mat-label>
+        </td>
+      </tr>
+      <tr>
+        <td>Total Abonado</td>
+        <td>
+          <mat-label style="align-text: center">{{
+            totalAbonado | currency: "Q"
+          }}</mat-label>
+        </td>
+      </tr>
+      <tr>
+        <td>Credito Pendiente</td>
+        <td>
+          <mat-label style="align-text: center">{{
+            total | currency: "Q"
+          }}</mat-label>
+        </td>
+      </tr>
+    </table>
+
+    <br />
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="warn" (click)="cerrar()">
+      <mat-icon>close</mat-icon>
+      <span>Salir</span>
+    </button>
+
+    <button mat-raised-button color="primary" (click)="imprimir()">
+      <mat-icon>print</mat-icon>
+      <span>Imprimir</span>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-title></mat-card-title>
+  <mat-card-content class="mat-card-content-body">
+    <table id="customers">
+      <tr>
+        <td class="th">Tipo de Movimiento</td>
+        <td class="th">Fecha</td>
+        <td class="th">Valor</td>
+      </tr>
+      <tr *ngFor="let element of clsDetalle">
+        <td>
+          <mat-label style="align-text: center">{{
+            element.tipomovimiento.descripcion
+          }}</mat-label>
+        </td>
+        <td>
+          <mat-label style="align-text: center">{{
+            element.fecha | date: "dd/MM/yyyy"
+          }}</mat-label>
+        </td>
+        <td>
+          <mat-label style="align-text: center">{{
+            element.valor | currency: "Q"
+          }}</mat-label>
+        </td>
+      </tr>
+    </table>
+
+    <br />
+  </mat-card-content>
+  <mat-card-actions align="end"> </mat-card-actions>
+</mat-card>

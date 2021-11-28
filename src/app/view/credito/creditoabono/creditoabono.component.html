@@ -1,0 +1,90 @@
+<h1 mat-dialog-title>Abono a credito</h1>
+<div mat-dialog-content>
+  <table>
+    <tr>
+      <td>
+        <mat-label style="align-text: center">{{
+          "Cliente: " + clsCredito.cliente.nombre + clsCredito.cliente.apellido
+        }}</mat-label>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <mat-label style="align-text: center">
+          {{ "DPI: " + clsCredito.cliente.dpi }}</mat-label
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-label style="align-text: center">{{
+          "Monto Credito: " + clsCredito.valor
+        }}</mat-label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-label style="align-text: center">{{
+          "Total Abonado: " + totalAbonado
+        }}</mat-label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-label style="align-text: center">{{
+          "Credito Pendiente: " + total
+        }}</mat-label>
+      </td>
+    </tr>
+  </table>
+
+  <br />
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>Fecha</mat-label>
+    <input
+      matInput
+      [matDatepicker]="pickerInicial"
+      placeholder="Ingrese la fecha"
+      [(ngModel)]="cls.fecha"
+      requiere
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="pickerInicial"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #pickerInicial></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>Seleccione Tipo de Credito</mat-label>
+    <mat-select [(ngModel)]="cls.tipomovimientoId" required>
+      <mat-option *ngFor="let c of _datosTipoMovimiento" [value]="c.id">
+        {{ c.descripcion }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>Monto</mat-label>
+    <input
+      matInput
+      type="number"
+      data-decimal="2"
+      placeholder="Ingrese el Monto del credito"
+      [(ngModel)]="cls.valor"
+      requiere
+    />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" (click)="cerrar()">Cerrar</button>
+  <button
+    mat-raised-button
+    color="primary"
+    *ngIf="grabarVisible()"
+    (click)="grabar()"
+  >
+    Grabar
+  </button>
+</div>

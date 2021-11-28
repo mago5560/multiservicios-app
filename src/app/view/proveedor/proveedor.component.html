@@ -1,0 +1,96 @@
+<section>
+  <div class="example-label"><h2>Proveedor Filtro</h2></div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-raised-button color="primary" (click)="grabar()">
+          <mat-icon>add</mat-icon>
+          <span>Agregar</span>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-raised-button color="primary" (click)="buscar()">
+          <mat-icon>search</mat-icon>
+          <span>Buscar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div>
+    <mat-card class="example-card" *ngFor="let element of _datos">
+      <mat-card-header>
+        <mat-card-title>{{
+          "Proveedor: " + element.nombre + element.apellido
+        }}</mat-card-title>
+        <mat-card-subtitle>{{ "DPI: " + element.dpi }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <table>
+            <tr>
+              <td [style.width.%]="40">
+                <mat-label style="align-text: center">NIT:</mat-label>
+              </td>
+              <td [style.width.%]="60">
+                <mat-label style="align-text: center">{{
+                  element.nit
+                }}</mat-label>
+              </td>
+            </tr>
+            <tr>
+              <td [style.width.%]="40">
+                <mat-label style="align-text: center">Telefono:</mat-label>
+              </td>
+              <td [style.width.%]="60">
+                <mat-label style="align-text: center">{{
+                  element.telefono
+                }}</mat-label>
+              </td>
+            </tr>
+            <tr>
+              <td [style.width.%]="40">
+                <mat-label style="align-text: center">Email:</mat-label>
+              </td>
+              <td [style.width.%]="60">
+                <mat-label style="align-text: center">{{
+                  element.correo
+                }}</mat-label>
+              </td>
+            </tr>
+            <tr>
+              <td [style.width.%]="40">
+                <mat-label style="align-text: center">Direccion:</mat-label>
+              </td>
+              <td [style.width.%]="60">
+                <mat-label style="align-text: center">{{
+                  element.direccion
+                }}</mat-label>
+              </td>
+            </tr>
+            <tr>
+              <td [style.width.%]="40">
+                <mat-label style="align-text: center">Empresa:</mat-label>
+              </td>
+              <td [style.width.%]="60">
+                <mat-label style="align-text: center">{{
+                  element.empresa
+                }}</mat-label>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-icon-button color="warn" (click)="eliminar(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="modificar(element)">
+          <mat-icon>mode_edit</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>

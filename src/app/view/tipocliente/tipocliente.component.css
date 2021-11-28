@@ -1,0 +1,50 @@
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: right;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: middle;
+}
+.example-label {
+  display: flex;
+  justify-content: center;
+}
+
+.content-body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-card {
+  margin: 1em;
+}
+
+mat-card-header,
+mat-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.main-div-data {
+  justify-content: center;
+  align-items: center;
+}

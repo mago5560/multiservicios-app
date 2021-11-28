@@ -1,0 +1,102 @@
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-title>Cliente Tecleo</mat-card-title>
+    <mat-card-subtitle>ingreso de clientes</mat-card-subtitle>
+    <mat-card-content>
+      <div>
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese su Nombre"
+            [(ngModel)]="cls.nombre"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Apellido</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese su Apellido"
+            [(ngModel)]="cls.apellido"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>DPI</mat-label>
+          <input
+            matInput
+            type="number"
+            placeholder="Ingrese el DPI"
+            [(ngModel)]="cls.dpi"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>NIT</mat-label>
+          <input
+            matInput
+            type="number"
+            placeholder="Ingrese el NIT"
+            [(ngModel)]="cls.nit"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Telefono</mat-label>
+          <input
+            matInput
+            type="number"
+            placeholder="Ingrese su Telefono"
+            [(ngModel)]="cls.telefono"
+            requiere
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Direccion</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese su Direccion"
+            [(ngModel)]="cls.direccion"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Correo Electronico</mat-label>
+          <input
+            matInput
+            type="email"
+            placeholder="Ingrese su Correo Electronico"
+            [(ngModel)]="cls.correo"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Seleccione Tipo de Cliente</mat-label>
+          <mat-select [(ngModel)]="cls.tipoclienteId" required>
+            <mat-option *ngFor="let c of _datosTipoCliente" [value]="c.id">
+              {{ c.clasificacion }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="cerrar()">
+        Cancelar
+      </button>
+      <button mat-raised-button color="primary" (click)="grabar()">
+        Grabar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

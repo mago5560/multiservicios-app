@@ -1,0 +1,70 @@
+<section>
+  <div class="example-label"><h2>Usuario Filtro</h2></div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-raised-button color="primary" (click)="grabar()">
+          <mat-icon>add</mat-icon>
+          <span>Agregar</span>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-raised-button color="primary" (click)="buscar()">
+          <mat-icon>search</mat-icon>
+          <span>Buscar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div>
+    <mat-card class="example-card" *ngFor="let element of _datos">
+      <mat-card-header>
+        <mat-card-title>{{
+          "Nombre: " + element.nombre + " " + element.apellido
+        }}</mat-card-title>
+        <mat-card-subtitle
+          >{{ "Usuario: " + element.usuario }}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td class="th">Telefono</td>
+            <td class="th">Direccion</td>
+            <td class="th">Tipo Usuario</td>
+          </tr>
+          <tr>
+            <td>
+              <mat-label style="align-text: center">{{
+                element.telefono
+              }}</mat-label>
+            </td>
+            <td>
+              <mat-label style="align-text: center">{{
+                element.direccion
+              }}</mat-label>
+            </td>
+            <td>
+              <mat-label style="align-text: center">{{
+                element.tipousuario.descripcion
+              }}</mat-label>
+            </td>
+          </tr>
+        </table>
+
+        <br />
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-icon-button color="warn" (click)="eliminar(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="modificar(element)">
+          <mat-icon>mode_edit</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>

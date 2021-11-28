@@ -1,0 +1,64 @@
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-title>Articulo Tecleo</mat-card-title>
+    <mat-card-subtitle>ingreso de articulo</mat-card-subtitle>
+    <mat-card-content>
+      <div>
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Descripcion</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Ingrese la descricpion"
+            [(ngModel)]="cls.descripcion"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Cantidad Inicial</mat-label>
+          <input
+            matInput
+            type="number"
+            placeholder="Ingrese la cantidad inicial"
+            data-decimal="2"
+            [(ngModel)]="cls.cantidad"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Valor de Compra</mat-label>
+          <input
+            matInput
+            type="number"
+            data-decimal="2"
+            placeholder="Ingrese el valor de compra"
+            [(ngModel)]="cls.valorcompra"
+            requiere
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Valor de Venta</mat-label>
+          <input
+            matInput
+            type="number"
+            data-decimal="2"
+            placeholder="Ingrese el valor de la venta"
+            [(ngModel)]="cls.valorventa"
+            requiere
+          />
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="cerrar()">
+        Cancelar
+      </button>
+      <button mat-raised-button color="primary" (click)="grabar()">
+        Grabar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

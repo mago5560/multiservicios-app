@@ -1,0 +1,100 @@
+<section>
+  <div class="example-label"><h2>Movimiento Filtro</h2></div>
+  <div>
+    <mat-card class="example-card">
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Seleccione Cliente</mat-label>
+          <mat-select [(ngModel)]="clienteId">
+            <mat-option [value]="0">Todos</mat-option>
+            <mat-option *ngFor="let c of _datosCliente" [value]="c.id">
+              {{ c.nombre + " " + c.apellido }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-raised-button color="primary" (click)="grabar()">
+          <mat-icon>add</mat-icon>
+          <span>Agregar</span>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-raised-button color="primary" (click)="buscar()">
+          <mat-icon>search</mat-icon>
+          <span>Buscar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div>
+    <mat-card class="example-card" *ngFor="let element of _datos">
+      <mat-card-header>
+        <div *ngIf="setVisibleSalida(element)">
+          <mat-card-title>{{
+            "Cliente: " +
+              element.cliente.nombre +
+              " " +
+              element.cliente.apellido
+          }}</mat-card-title>
+          <mat-card-subtitle>{{
+            "DPI: " + element.cliente.dpi
+          }}</mat-card-subtitle>
+        </div>
+        <div *ngIf="!setVisibleSalida(element)">
+          <mat-card-title>{{
+            "Proveedor: " +
+              element.proveedor.nombre +
+              " " +
+              element.proveedor.apellido
+          }}</mat-card-title>
+          <mat-card-subtitle>{{
+            "Empresa: " + element.proveedor.empresa
+          }}</mat-card-subtitle>
+        </div>
+      </mat-card-header>
+      <mat-card-content class="mat-card-content-body">
+        <table>
+          <tr>
+            <td>
+              <mat-label style="align-text: center">Fecha:</mat-label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-label style="align-text: center">{{
+                element.fecha | date: "dd/MM/yyyy"
+              }}</mat-label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-label style="align-text: center"
+                >Tipo de Movimiento:</mat-label
+              >
+            </td>
+            <td>
+              <mat-label style="align-text: center">{{
+                element.tipomovimiento.descripcion
+              }}</mat-label>
+            </td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="detalle(element)">
+          <mat-icon>list</mat-icon>
+          <span>Ver Detalle</span>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>
